@@ -2,14 +2,14 @@ const axios = require('axios');
 
 
 const apiClientBk = axios.create({
-    baseURL: 'http://localhost/bkAgenteGestur/app/public/index.php',
+    baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
 const apiClientAppMovil = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://192.168.0.109:3000',
     headers: {
         'Content-Type': 'application/json',
     },

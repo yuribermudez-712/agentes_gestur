@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://192.168.0.109:3000',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -15,7 +15,7 @@ const apiClient = axios.create({
 
 (async () => {
 
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: true ,executablePath:'/usr/bin/google-chrome'  });
     const context = await browser.newContext({
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
         , ignoreHTTPSErrors: true

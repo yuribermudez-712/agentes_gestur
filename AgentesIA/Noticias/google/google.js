@@ -9,7 +9,7 @@ chromium.use(stealth);
 
 // Crear una instancia preconfigurada
 const apiClient = axios.create({
-  baseURL: 'http://localhost/bkAgenteGestur/app/public/index.php',
+  baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -24,6 +24,7 @@ const randomWait = (min, max) =>
   // IMPORTANTE: launchPersistentContext crea el navegador y el contexto AL MISMO TIEMPO
   const context = await chromium.launchPersistentContext(userDataDir, {
     headless: false,
+    executablePath:'/usr/bin/google-chrome' ,
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     args: [
       '--disable-blink-features=AutomationControlled', // Esconde que es automatizado

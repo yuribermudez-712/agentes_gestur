@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const Minio = require('minio');
 const apiClient = axios.create({
-    baseURL: 'http://localhost/bkAgenteGestur/app/public/index.php',
+    baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -44,7 +44,7 @@ async function sendFileOD({ path, nombreArchivo }) {
 
 (async () => {
 
-    const browser = await chromium.launch({ headless: true, executablePath: '/snap/bin/chromium' });
+    const browser = await chromium.launch({ headless: true,executablePath:'/usr/bin/google-chrome' });
     const context = await browser.newContext({
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
     });
