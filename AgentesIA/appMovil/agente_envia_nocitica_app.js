@@ -9,7 +9,7 @@ const apiClientBk = axios.create({
 });
 
 const apiClientAppMovil = axios.create({
-    baseURL: 'http://192.168.0.109:3000',
+    baseURL: 'https://api.gestur.lat',//,'http://192.168.0.109:3000',
     headers: {
         'Content-Type': 'application/json',
     },

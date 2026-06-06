@@ -9,7 +9,7 @@ chromium.use(stealth);
 
 // Crear una instancia preconfigurada
 const apiClient = axios.create({
-  baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
+  baseURL: 'http://localhost/bkAgenteGestur/app/public/index.php',
   headers: {
     'Content-Type': 'application/json',
   },

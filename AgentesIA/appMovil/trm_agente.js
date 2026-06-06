@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const apiClient = axios.create({
-    baseURL: 'http://192.168.0.109:3000',
+    baseURL: 'https://api.gestur.lat',//'http://192.168.0.109:3000',
     headers: {
         'Content-Type': 'application/json',
     },
