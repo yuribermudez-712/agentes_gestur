@@ -44,7 +44,7 @@ async function sendFileOD({ path, nombreArchivo }) {
 
 (async () => {
 
-    const browser = await chromium.launch({ headless: true,executablePath:'/usr/bin/google-chrome' });
+    const browser = await chromium.launch({ headless: true, executablePath: '/usr/bin/google-chrome' });
     const context = await browser.newContext({
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
     });
@@ -88,7 +88,7 @@ async function sendFileOD({ path, nombreArchivo }) {
             console.log('Respuesta:', response.data);
             if (response.data.status === true) {
                 fs.writeFileSync(rutaDestino, bufferImagen);
-                await sendFileOD({ path: rutaDestino, nombreArchivo });
+                await sendFileOD({ path: rutaDestino, nombreArchivo: nombreArchivo });
                 await fs.unlinkSync(rutaDestino);
             }
 

@@ -43,7 +43,7 @@ async function sendFileOD({ path, nombreArchivo }) {
 
 (async () => {
 
-    const browser = await chromium.launch({ headless: true,executablePath:'/usr/bin/google-chrome'  });
+    const browser = await chromium.launch({ headless: true, executablePath: '/usr/bin/google-chrome' });
     const page = await browser.newPage();
     await page.goto('https://fontur.com.co/es/comunicados');
     const filas = await page.locator('#views-bootstrap-taxonomy-term-page-1 > *').all();
@@ -64,12 +64,14 @@ async function sendFileOD({ path, nombreArchivo }) {
                 console.error('No se encontró el atributo src en la imagen');
                 return;
             }
+            const usrcAbsoluta = new URL(src, urlDeLaPagina).href;
 
 
-            const respuesta = await page.request.get(urlAbsoluta);
+            const respuesta = await page.request.get(usrcAbsoluta);
             const bufferImagen = await respuesta.body();
             const nombreArchivo = `imagen_fontur_${uuidv4()}.png`;
             const rutaDestino = path.join(__dirname, nombreArchivo);
+
             try {
                 const response = await apiClient.post('/noticias/api',
                     {
@@ -83,7 +85,7 @@ async function sendFileOD({ path, nombreArchivo }) {
                 console.log('Respuesta:', response.data);
                 if (response.data.status === true) {
                     fs.writeFileSync(rutaDestino, bufferImagen);
-                    await sendFileOD({ path: rutaDestino, nombreArchivo });
+                    await sendFileOD({ path: rutaDestino, nombreArchivo: nombreArchivo });
                     await fs.unlinkSync(rutaDestino);
                 }
 
