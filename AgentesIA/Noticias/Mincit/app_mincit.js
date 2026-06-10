@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const Minio = require('minio');
 const apiClient = axios.create({
-    baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
+    baseURL: 'https://eki.lat/bkAgenteGestur/app/public/index.php',
     headers: {
         'Content-Type': 'application/json',
     },

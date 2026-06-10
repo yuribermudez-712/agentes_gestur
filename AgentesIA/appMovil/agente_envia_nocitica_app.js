@@ -2,7 +2,7 @@ const axios = require('axios');
 
 
 const apiClientBk = axios.create({
-    baseURL: 'http://192.168.0.109/bkAgenteGestur/app/public/index.php',
+    baseURL: 'https://eki.lat/bkAgenteGestur/app/public/index.php',
     headers: {
         'Content-Type': 'application/json',
     },
